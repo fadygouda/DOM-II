@@ -32,6 +32,8 @@ homeLink.forEach(link => {
         //things we want happeneing whenn this link gets clicked
         link.style.color = 'blue';
         console.log('the link got clicked');
+        event.preventDefault();
+        event.stopPropagation();
         
     }
 )})
@@ -51,7 +53,7 @@ intro.addEventListener('mouseleave', () => {
 
 const mainContent = document.querySelector('.home');
 mainContent.addEventListener('mouseover', () => {
-    mainContent.style.background = '#baa468'
+    mainContent.style.background = '#968c72'
     mainContent.style.transition = 'all 2s'
 })
 
@@ -61,6 +63,7 @@ introTitle.addEventListener('mouseover', () => {
     introTitle.style.fontWeight = 'bold'
     introTitle.style.fontSize = '5rem'
 })
+
 
 const introText = document.querySelector('.intro p');
 introText.addEventListener('mouseover', () => {
@@ -92,4 +95,33 @@ const pickDestinationText = document.querySelector('.content-destination p');
 pickDestinationText.addEventListener('mouseover', (event) => {
     pickDestinationText.style.textAlign = 'center'
 })
+const bottomSection = document.querySelector('.content-pick');
+bottomSection.style.flexDirection = 'column'
 
+const destinations = document.querySelectorAll('.content-pick .destination');
+destinations.forEach(card => {
+    card.style.width = '80%'
+    card.style.margin= '0 auto'
+})
+
+
+const pickContent = document.querySelectorAll('.content-pick .destination h4');
+pickContent.forEach(h4 => {
+    h4.style.verticalAlign = 'middle'
+    h4.style.fontSize = '5rem'
+    h4.style.textAlign = 'center'
+    h4.style.width = '50%'
+    h4.style.padding = '2rem'
+    h4.style.borderRadius = '50%'
+    h4.style.margin = '0 auto'
+    h4.style.background = '#baa468' 
+    h4.addEventListener('mouseover', (event) => {
+        h4.style.background = '#968c72'
+        h4.style.transition = 'all 5s'
+    }) 
+})
+
+const button = document.querySelectorAll('.content-pick .destination .btn');
+button.forEach(btn => {
+    btn.style.margin = '10px auto'
+})
